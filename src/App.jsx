@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence, useSpring, useInView } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import './App.css'
 
 const personalInfo = {
@@ -481,12 +482,20 @@ function Education() {
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const formRef = useRef()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => { setSubmitted(false); setFormData({ name: '', email: '', message: '' }) }, 3000)
+    
+    emailjs.sendForm('service_isl4yzs', 'template_5svykto', formRef.current, 'iBmG8dFXCOgCcIRj5')
+      .then(() => {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', message: '' })
+        setTimeout(() => setSubmitted(false), 3000)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
   }
 
   return (
@@ -523,14 +532,15 @@ function Contact() {
 
           <motion.form 
             className="contact-form"
+            ref={formRef}
             onSubmit={handleSubmit}
             variants={staggerContainer}
           >
             <motion.div className="form-row" variants={fadeInUp}>
-              <input type="text" placeholder="Your Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
-              <input type="email" placeholder="Your Email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
+              <input type="text" name="name" placeholder="Your Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
+              <input type="email" name="email" placeholder="Your Email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
             </motion.div>
-            <motion.textarea placeholder="Your Message" rows="5" required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} variants={fadeInUp}></motion.textarea>
+            <motion.textarea name="message" placeholder="Your Message" rows="5" required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} variants={fadeInUp}></motion.textarea>
             <motion.button type="submit" className="submit-btn" variants={fadeInUp} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               <span>Send Message</span>
               <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
