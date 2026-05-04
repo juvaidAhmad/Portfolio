@@ -14,6 +14,11 @@ const personalInfo = {
 
 const projects = [
   {
+    title: 'SoulPath – AI-Powered Wellness App',
+    description: 'AI-powered mobile wellness application focused on improving emotional well-being and self-awareness. Features mood tracking, journaling, AI-based personalized insights, affirmations, and the Auric Feel image analysis feature for symbolic emotional guidance.',
+    tech: ['React.js', 'Node.js', 'MongoDB', 'AI Integration']
+  },
+  {
     title: 'Truniform NFC Tag Platform',
     description: 'NFC-based uniform authentication and social matching platform with location-based matching, real-time notifications, and chat functionality.',
     tech: ['React.js', 'Node.js', 'MongoDB', 'Socket.io']
@@ -60,7 +65,7 @@ const skills = {
   'Frontend': ['React.js', 'Angular', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript'],
   'Backend': ['Node.js', 'Express.js', 'MongoDB', 'MySQL'],
   'Tools': ['Git', 'Jenkins', 'Jira', 'Postman'],
-  'Concepts': ['REST APIs', 'JWT Auth', 'Real-time Systems', 'MVC Architecture']
+  'Concepts': ['REST APIs', 'JWT Auth', 'Real-time Systems', 'MVC Architecture', 'AI Integration']
 }
 
 const education = [
@@ -109,7 +114,7 @@ function Navbar({ scrolled, mobileMenuOpen, setMobileMenuOpen, activeSection }) 
   const navItems = ['about', 'experience', 'projects', 'skills', 'education', 'contact']
 
   return (
-    <motion.nav 
+    <motion.nav
       className={`navbar ${scrolled ? 'scrolled' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -119,12 +124,12 @@ function Navbar({ scrolled, mobileMenuOpen, setMobileMenuOpen, activeSection }) 
         <motion.a href="#" className="logo" whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.95 }}>
           <span className="logo-text">J</span><span className="logo-accent">A</span>
         </motion.a>
-        
+
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           {navItems.map((item, i) => (
             <motion.li key={item} variants={fadeInUp} custom={i}>
-              <a 
-                href={`#${item}`} 
+              <a
+                href={`#${item}`}
                 className={activeSection === item ? 'active' : ''}
                 onClick={(e) => { e.preventDefault(); scrollTo(item); }}
               >
@@ -161,9 +166,9 @@ function Hero() {
         <div className="gradient-orb orb-3"></div>
         <div className="grid-pattern"></div>
       </div>
-      
+
       <motion.div className="hero-content" style={{ y: y1, opacity }}>
-        <motion.span 
+        <motion.span
           className="hero-label"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -172,8 +177,8 @@ function Hero() {
           <span className="label-line"></span>
           Hi, my name is
         </motion.span>
-        
-        <motion.h1 
+
+        <motion.h1
           className="hero-name"
           variants={titleVariants}
           initial="hidden"
@@ -185,8 +190,8 @@ function Hero() {
             </motion.span>
           ))}
         </motion.h1>
-        
-        <motion.h2 
+
+        <motion.h2
           className="hero-title"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -194,18 +199,18 @@ function Hero() {
         >
           <span className="title-accent">{personalInfo.title}</span>
         </motion.h2>
-        
-        <motion.p 
+
+        <motion.p
           className="hero-description"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
         >
-          I build exceptional digital experiences with modern technologies. 
+          I build exceptional digital experiences with modern technologies.
           Specialized in scalable web applications using MERN/MEAN stack.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           className="hero-cta"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -215,28 +220,28 @@ function Hero() {
           <a href="#contact" className="cta-secondary">Get In Touch</a>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="hero-contact-bar"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
           <motion.a href={`mailto:${personalInfo.email}`} whileHover={{ y: -3, scale: 1.02 }}>
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
             {personalInfo.email}
           </motion.a>
           <motion.a href={`tel:${personalInfo.phone}`} whileHover={{ y: -3, scale: 1.02 }}>
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
             {personalInfo.phone}
           </motion.a>
           <motion.a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" whileHover={{ y: -3, scale: 1.02 }}>
-            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" /></svg>
             LinkedIn
           </motion.a>
         </motion.div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         className="scroll-hint"
         style={{ y: y2 }}
         initial={{ opacity: 0 }}
@@ -245,7 +250,7 @@ function Hero() {
       >
         <motion.span animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
           Scroll to explore
-          <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
         </motion.span>
       </motion.div>
     </section>
@@ -262,7 +267,7 @@ function About() {
             <span className="title-underline"></span>
           </h2>
         </motion.div>
-        
+
         <div className="about-grid">
           <motion.div className="about-text" variants={staggerContainer}>
             <p>
@@ -275,14 +280,14 @@ function About() {
               Currently, I'm working at <span className="highlight">Smartdata Enterprises</span> as an Associate Software Engineer 2, where I continue to build innovative solutions.
             </p>
           </motion.div>
-          
+
           <motion.div className="about-stats" variants={staggerContainer}>
             <div className="stat-card">
               <span className="stat-number">3+</span>
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-card">
-              <span className="stat-number">5+</span>
+              <span className="stat-number">6+</span>
               <span className="stat-label">Projects Completed</span>
             </div>
             <div className="stat-card">
@@ -309,8 +314,8 @@ function Experience() {
 
         <div className="timeline">
           {experience.map((exp, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className="timeline-item"
               variants={cardVariants}
               custom={index}
@@ -329,7 +334,7 @@ function Experience() {
                 </div>
                 <ul className="exp-points">
                   {exp.points.map((point, i) => (
-                    <motion.li 
+                    <motion.li
                       key={i}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -362,15 +367,15 @@ function Projects() {
 
         <div className="projects-masonry">
           {projects.map((project, index) => (
-            <motion.article 
-              key={index} 
+            <motion.article
+              key={index}
               className="project-card"
               variants={cardVariants}
               custom={index}
               whileHover={{ y: -12, transition: { duration: 0.4 } }}
             >
               <div className="project-icon">
-                <svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" /></svg>
               </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
@@ -382,7 +387,7 @@ function Projects() {
                 </div>
               </div>
               <div className="project-arrow">
-                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg>
               </div>
             </motion.article>
           ))}
@@ -405,7 +410,7 @@ function Skills() {
 
         <div className="skills-showcase">
           {Object.entries(skills).map(([category, skillList], catIndex) => (
-            <motion.div 
+            <motion.div
               key={category}
               className="skill-group"
               variants={cardVariants}
@@ -422,7 +427,7 @@ function Skills() {
               </h3>
               <div className="skill-tags">
                 {skillList.map((skill, i) => (
-                  <motion.span 
+                  <motion.span
                     key={skill}
                     className="skill-tag"
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -456,7 +461,7 @@ function Education() {
 
         <div className="education-grid">
           {education.map((edu, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               className="education-card"
               variants={cardVariants}
@@ -464,7 +469,7 @@ function Education() {
               whileHover={{ y: -8, scale: 1.02 }}
             >
               <div className="edu-badge">
-                <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" /></svg>
               </div>
               <div className="edu-content">
                 <h3 className="edu-degree">{edu.degree}</h3>
@@ -486,7 +491,7 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     emailjs.sendForm('service_isl4yzs', 'template_5svykto', formRef.current, 'iBmG8dFXCOgCcIRj5')
       .then(() => {
         setSubmitted(true)
@@ -511,48 +516,24 @@ function Contact() {
         <div className="contact-wrapper">
           <motion.div className="contact-info" variants={staggerContainer}>
             <p className="contact-intro">
-              I'm currently <span className="highlight-accent">looking for new opportunities</span>. 
+              I'm currently <span className="highlight-accent">looking for new opportunities</span>.
               Whether you have a question or just want to connect, feel free to reach out!
             </p>
             <div className="contact-links">
               <motion.a href={`mailto:${personalInfo.email}`} variants={fadeInUp}>
-                <span className="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                <span className="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg></span>
                 {personalInfo.email}
               </motion.a>
               <motion.a href={`tel:${personalInfo.phone}`} variants={fadeInUp}>
-                <span className="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+                <span className="contact-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg></span>
                 {personalInfo.phone}
               </motion.a>
               <motion.a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" variants={fadeInUp}>
-                <span className="contact-icon"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></span>
+                <span className="contact-icon"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" /></svg></span>
                 LinkedIn Profile
               </motion.a>
             </div>
           </motion.div>
-
-          <motion.form 
-            className="contact-form"
-            ref={formRef}
-            onSubmit={handleSubmit}
-            variants={staggerContainer}
-          >
-            <motion.div className="form-row" variants={fadeInUp}>
-              <input type="text" name="name" placeholder="Your Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
-              <input type="email" name="email" placeholder="Your Email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
-            </motion.div>
-            <motion.textarea name="message" placeholder="Your Message" rows="5" required value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} variants={fadeInUp}></motion.textarea>
-            <motion.button type="submit" className="submit-btn" variants={fadeInUp} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <span>Send Message</span>
-              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            </motion.button>
-            <AnimatePresence>
-              {submitted && (
-                <motion.p className="success-msg" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-                  ✓ Message sent successfully!
-                </motion.p>
-              )}
-            </AnimatePresence>
-          </motion.form>
         </div>
       </div>
     </AnimatedSection>
@@ -561,7 +542,7 @@ function Contact() {
 
 function Footer() {
   return (
-    <motion.footer 
+    <motion.footer
       className="footer"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -583,10 +564,10 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
-      
+
       const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'education', 'contact']
       const scrollPos = window.scrollY + 150
-      
+
       for (const section of sections) {
         const el = document.getElementById(section)
         if (el) {
