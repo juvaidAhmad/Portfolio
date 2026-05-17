@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap');
-
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,9 +7,11 @@
 body {
   margin: 0;
   min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #64ffda;
-  color: #0a192f;
+  background: #00d4aa;
+  color: #0a0a0f;
 }
